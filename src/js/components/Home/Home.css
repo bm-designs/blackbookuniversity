@@ -1,0 +1,155 @@
+ #header button {
+ 	background-color: transparent;
+    color: white;
+    font-weight: 600;
+    border: none;
+    margin-left: 15%;
+    font-size: larger;
+    padding: 0;
+
+ }
+ .timeline-wrapper {
+ 	display: inline-flex;
+
+ }
+ .timeline-wrapper p {
+	font-weight: 300;
+	text-align: justify;
+	font-size: 14px;
+ }
+ #profile-menu{
+ 	width: 15vw;
+ 	padding: 1% 1%;
+ 	color: white;
+ 	background-color: black;
+ 	height: 100vh;
+ }
+ #profile-cog {
+ 	width: 25px;
+ 	height: 25px;
+ 	float: right;
+ }
+ #profile-menu h2 {
+ 	display: inline-flex;
+ 	margin: 2% 2%;
+
+ }
+ #profile-menu p {
+ 	text-align: justify;
+    font-size: 12px;
+    line-height: 1rem;
+ }
+ #timeline {
+ 	width: 60vw;
+ 	overflow-y: scroll;
+
+ }
+ #timeline-button {
+ 	position: fixed;
+ 	right: 1%;
+ 	top: 1%;
+ 	cursor: pointer;
+ 	width: 1%;
+ }
+ 
+ #ad-space {
+ 	width: 20vw;
+ 	margin-left: 2vw;
+ 	height: fit-content;
+ 	background-color: white;
+ 	border: solid black 1px;
+ 	border-radius: 5px;
+ 	margin-top: 2%;
+ 	text-align: center;
+ 	box-shadow: 5px 9px 13px #888886;
+ }
+ #ad-space h1 {
+ 	margin: 0;
+ 	font-weight: 200;
+ 	border-top-right-radius: 5px;
+ 	border-top-left-radius: 5px;
+ }
+#ad-space h3 {
+ 	margin: 0;
+ }
+ .ad-title {
+ 	margin-bottom: 0;
+ 	text-align: center;
+ }
+ #ad-space p {
+ 	font-size: 13px;
+ 	text-align: justify;
+ }
+ #ad-space button {
+ 	background-color: black;
+ 	width: 100%;
+ 	text-decoration: none; 
+ }
+ 
+#compose-wrapper {
+	height: fit-content;
+    width: 55.5vw;
+    text-align: center;
+    background-color: white;
+    margin-left: 5%;
+}
+.post-toggle {
+	text-decoration-line: none;
+	cursor: pointer;
+	background-color: black;
+}
+#post-toggle-one {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-right: solid 3px white;
+}
+#post-toggle-two {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;	
+} 
+#compose-post {
+	text-align: center;
+	background-color: black;
+	width: 96%;
+	border-radius: 3px;
+	text-decoration: none;
+	padding: 2%;
+	font-weight: 600; 
+	margin-top: 3%;
+}
+#compose-post button {
+	text-decoration-line: none;
+	
+
+}
+#compose-wrapper textarea {
+	width: 99.7%;
+    height: 15vh;
+    resize: none;
+    border-radius: 2px;
+    margin-top: 3%;
+}
+#insert {
+	width: 5vw;
+}
+
+#compose-date {
+	background: white;
+    border-radius: 4px;
+}
+#close-compose {
+	color: #171718;
+	float: right;
+	cursor: pointer;
+	text-decoration: none;
+	border-radius: 5px;
+}
+#close-compose:hover {
+
+}
+#profile-menu button {
+	text-decoration-line: none;
+}
+#profile-menu button:hover {
+	cursor: pointer;
+}

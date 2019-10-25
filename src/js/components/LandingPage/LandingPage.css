@@ -1,0 +1,91 @@
+a {
+	font-weight: 800;
+}
+#lpbg {
+	width: 100vw;
+	zoom: 0.5;
+
+}
+#wrapper {
+	background: url('/lpbg') center;
+	display: inline-flex;
+	width: 100vw;
+	height: 95vh;
+}
+
+.create {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+}
+.create form {
+	border-radius: 10px;
+	margin:3%;
+	width: 16vw;
+	background-color: white;
+	box-shadow: 4px 4px 12px #47474b;
+}
+.create input {
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 5%;
+    margin-bottom: 3%;
+}
+.create form h2 {
+	margin: 0;
+	background-color: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 2%;
+    color: white;
+}
+
+#header-login {
+	margin-left: auto;
+	width: 25vw;
+}
+#header-login input {
+	border-bottom: solid 2px white; 
+	color: white;
+	margin-right: 2%;
+}
+#header-login label {
+	margin-right: 2%;
+}
+#radio-width {
+	width:fit-content;
+}
+#radio-width#text {
+	font-size: 10px;
+}
+#create-button {
+	background-color: black;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 1%;
+	margin-top: 2%;
+	text-decoration: none;
+	width: 100%;
+}
+#donate {
+	width: 25vw;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    text-align: justify;
+    background: white;
+    border-radius: 20px;
+    height: fit-content;
+    color: #171718;
+    box-shadow: 4px 4px 12px #47474b;
+}
+#donate p {
+	text-align: justify;
+}
+#donate-button {
+	background-color: black;
+    width: 100%;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-bottom: 1%;
+}

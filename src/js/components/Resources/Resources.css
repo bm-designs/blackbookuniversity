@@ -1,0 +1,30 @@
+#list-description {
+	text-align: justify;
+	width: 95%;
+	overflow-y: hidden;
+	height: fit-content;
+}
+.results-list {
+	list-style-type: none;
+}
+.results-list li {
+	margin-bottom: 1%;
+    width: 95%;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid grey;
+    list-style: none;
+    padding: 1%;
+    box-shadow: 1px 2px 5px #888886;
+
+}
+.results-list li:hover {
+	cursor: pointer;
+}
+#list-address {
+	padding-left: 2%
+}
+
+#search-input:hover {
+	cursor: text;
+}
