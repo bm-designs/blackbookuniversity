@@ -45,7 +45,6 @@ app.post("/login", function(req,res){
 			console.log(err)
 		}
 		var data = result.rows;
-		console.log(data)
 
 		res.send({userid:data[0].userid})
 	})
@@ -55,25 +54,58 @@ app.get('/home', function(req, res){
 	ReactDOM.render
 })
 app.post('/event', function(req, res){
-	console.log(req.body)
-	var data = Object.keys(req.body)[0].split(",");
-	var userid = data[0].split(":")[1];
-	var date = data[1].split(":")[1];
-	var title = data[2].split(":")[1];
-	var location = data[3].split(":")[1];
-	var postType = data[4].split(":")[1];
-	var postText = data[5].split(":")[1];
-	var values = [userid, title, date, location, postText]
-	console.log(values)
-	/*
-	var query = "INSERT INTO public.events(userid, title, date, location, postText) VALUES($1,$2,$3,$4,$5)";
-	client.query(query, function(err,result){
-	if(err){
-	console.log(err)
-	//error handle
-	}
+	var data = JSON.stringify(req.body).split('\\",')
+	var userid = String(data[0]).split(':')[1].split('"')[1];
+	var date = String(data[1]).split(':')[1].split('"')[1];
+	var title = String(data[2]).split(":")[1].split('"')[1];
+	var location = String(data[3]).split(":")[1].split('"')[1];
+	var postText = String(data[4]).split(":")[1].split('"')[1];
+	var dirtyURL = String(data[5]).split(":");
+	var postURL = dirtyURL[1]+dirtyURL[2]
+	var cleanURL = postURL.split('"')[1]
+	var time = String(data[6]).split(":")[1].split('"')[1];
+	var type = String(data[7]).split(":")[1].split('"')[1].replace(/[^\w\s]/gi, '');
+	var postid = Math.random().toString(36).substr(2, 12);
+	// // console.log(data2[1].split("postTime:"));
+	var username = '';
+	client.query("SELECT name from public.user WHERE userid='"+userid+"'", function(err, result){
+		if (err){
+			console.log(err)
+		} else {
+			username = result.rows[0].name
+			var values = [username, userid, date, title, location, postText, cleanURL, time, type, postid]
+			var query = "INSERT INTO public.posts (name,userid, date, title, location, text, url, time, type, postid) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
+			client.query(query, values, function(err,result){
+				if(err){
+					console.log(err)
+					//error handle
+				} else {
+					console.log("success")
+					res.status(200)
+				}
+				
+			})
+		}
 	})
-	*/
+	
+})
+app.post("/posts", function(req, res){
+	//select the followers from the 
+	var data = JSON.stringify(req.body);
+	var userid = String(data).split(":")[1].replace(/[^\w\s]/gi, '');
+	console.log(userid)
+	var posts = []
+	var query = "SELECT * FROM public.posts WHERE userid='"+userid+"'"
+	client.query(query, function(err, result){
+		if(err){
+			console.log(err)
+		}else {
+			posts = result.rows
+			res.send(posts)
+		}
+
+	})
+
 })
 app.use(express.static('src'));
 app.listen(3000,  () => console.log("Example app listening on port 3000!"));

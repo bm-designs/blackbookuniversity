@@ -22,7 +22,7 @@ a {
 	border-radius: 10px;
 	margin:3%;
 	width: 16vw;
-	background-color: white;
+	background-color: black;
 	box-shadow: 4px 4px 12px #47474b;
 }
 .create input {
@@ -73,10 +73,10 @@ a {
     margin-left: auto;
     margin-top: 10%;
     text-align: justify;
-    background: white;
+    background: black;
     border-radius: 20px;
     height: fit-content;
-    color: #171718;
+    color: white;
     box-shadow: 4px 4px 12px #47474b;
 }
 #donate p {

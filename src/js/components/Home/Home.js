@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Updates from "../Updates/Updates.js";
 import Business from "../Community/Community.jsx";
 import Resources from "../Resources/Resources.jsx";
 import AccountSettings from "../AccountSettings/AccountSettings.jsx";
-import Event from "./Event.jsx";
+import Posts from "./Posts.jsx";
 import "./Home.css";
 
 class Home extends React.Component {
@@ -29,7 +28,6 @@ class Home extends React.Component {
 		this.openCompose = this.openCompose.bind(this);
 		this.closeCompose = this.closeCompose.bind(this);
 		this.updateSearchQuery = this.updateSearchQuery.bind(this);
-		this.changePostType = this.changePostType.bind(this);
 	}
 	loadTab(tab){
 		if (tab==1){
@@ -42,11 +40,7 @@ class Home extends React.Component {
 			this.ReactDOM.render(<Business/>, document.getElementById("timeline"))
 		}
 	}
-	changePostType(type){
-		if(type==1){
-			this.ReactDom.render(<Event userid={this.userid}/>,document.getElementById("form-toggle"))
-		}
-	}
+	
 	changePage(page){
 		if(page==1){
 			this.ReactDOM.render(<AccountSettings userid={this.userid}/>,document.getElementById("timeline"))
@@ -62,14 +56,9 @@ class Home extends React.Component {
 	updateSearchQuery(e){
 		console.log(e.taret.value)
 	}
-	componentDidUpdate() {
-		this.ReactDOM.render(<Event/>, document.getElementById("form-toggle"))
-	}
 	componentDidMount(){
 		//put the home page first - personal upcoming events, followed orgs/businesses
-		this.ReactDOM.render(<Updates/>, document.getElementById("timeline"))
-		this.ReactDOM.render(<Event/>,document.getElementById("form-toggle"))
-
+		this.ReactDOM.render(<Posts userid={this.userid}/>, document.getElementById("timeline"))
 	}
 	render(){
 
@@ -93,20 +82,10 @@ class Home extends React.Component {
 						<div class="search-bar">
 							<input type="search" placeholder="Search Resources" id="search-input" onChange={this.updateSearchQuery}/>
 						</div>
-						<div id="compose-wrapper">
-							<button id="close-compose" onClick={this.closeCompose}> X </button>
-							<div id="pad">
-								<button class="post-toggle" id="post-toggle-one" onClick={this.changePostType.bind(this, 1)}> Event </button>
-								<button class="post-toggle" id="post-toggle-two" onClick={this.changePostType.bind(this, 2)}> Post </button>
-								<div id="form-toggle">
-								</div>
-							</div> 	
-						</div>
 						<div id="timeline">
 							
 						</div>
 					</div>
-					<img src="/add" id="timeline-button" onClick={this.openCompose}/>
 					<div id="ad-space">
 					<h1> We're Hiring </h1>
 					<div id="pad">
@@ -125,7 +104,3 @@ class Home extends React.Component {
 		}
 }
 export default Home;
-
-function render(){
-	return <Home/>
-}

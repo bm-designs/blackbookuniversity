@@ -1,0 +1,8 @@
+#preview {
+	overflow-y: hidden;
+	height: 0px;
+}
+#compose-start-time {
+	background: black;
+	color: white;
+}

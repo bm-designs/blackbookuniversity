@@ -23,6 +23,8 @@
  	color: white;
  	background-color: black;
  	height: 100vh;
+ 	position: fixed;
+ 	border-right: solid 1px grey; 
  }
  #profile-cog {
  	width: 25px;
@@ -40,9 +42,11 @@
     line-height: 1rem;
  }
  #timeline {
- 	width: 60vw;
- 	overflow-y: scroll;
-
+ 	width: 61vw;
+ 	overflow-y: hidden;
+ 	position: fixed;
+    left: 17%;
+    top: 1%;
  }
  #timeline-button {
  	position: fixed;
@@ -53,15 +57,17 @@
  }
  
  #ad-space {
- 	width: 20vw;
- 	margin-left: 2vw;
- 	height: fit-content;
- 	background-color: white;
- 	border: solid black 1px;
- 	border-radius: 5px;
- 	margin-top: 2%;
- 	text-align: center;
- 	box-shadow: 5px 9px 13px #888886;
+	width: 20vw;
+    height: 100vh;
+    border: solid black 1px;
+    border-radius: 5px;
+    padding-top: 5%;
+    text-align: center;
+    position: fixed;
+    right: 15px;
+    top: 0px;
+    border-left: grey solid 1px;
+    padding-left: 1%;
  }
  #ad-space h1 {
  	margin: 0;
@@ -88,34 +94,45 @@
  
 #compose-wrapper {
 	height: fit-content;
-    width: 55.5vw;
+    width: 60vw;
     text-align: center;
-    background-color: white;
-    margin-left: 5%;
+    margin-left: 0.75%;
+
 }
 .post-toggle {
 	text-decoration-line: none;
 	cursor: pointer;
 	background-color: black;
+	width: 50px;
+    font-size: 12px;
+    float: left;
+    border: solid grey 1px;
+    font-weight: 600;
+    padding: 1%;
+}
+#compose label {
+	font-size: 12px;
+    font-weight: 600;
+}
+#compose input {
+	width: 80px;
+	border: white;
 }
 #post-toggle-one {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
-	border-right: solid 3px white;
 }
 #post-toggle-two {
 	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;	
+	border-bottom-right-radius: 5px;
+	margin-left: 1%;	
 } 
 #compose-post {
 	text-align: center;
-	background-color: black;
-	width: 96%;
-	border-radius: 3px;
-	text-decoration: none;
-	padding: 2%;
-	font-weight: 600; 
-	margin-top: 3%;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 2%;
 }
 #compose-post button {
 	text-decoration-line: none;
@@ -124,18 +141,22 @@
 }
 #compose-wrapper textarea {
 	width: 99.7%;
-    height: 15vh;
+    height: 10vh;
+    background: black;
+    color: white;
+    font-size: 15px;
     resize: none;
     border-radius: 2px;
     margin-top: 3%;
+    border: solid 1px grey;
 }
 #insert {
 	width: 5vw;
 }
 
 #compose-date {
-	background: white;
-    border-radius: 4px;
+	background: black;
+    color: white;
 }
 #close-compose {
 	color: #171718;
@@ -152,4 +173,29 @@
 }
 #profile-menu button:hover {
 	cursor: pointer;
+}
+#post-wrapper {
+    width: 98%;
+    cursor: pointer;
+    border-bottom: 1px solid grey;
+    border-top: 1px solid grey;
+    padding: 1%;
+}
+#popsts-wrapper {
+	border-top: solid 5px grey;
+}
+#posts-wrapper h1 {
+	color: white;
+background-color: transparent;
+font-size: 15px;
+font-weight: 600;
+display: inline-flex;
+width: fit-content; 
+}
+#posts-wrapper h2 {
+	color: white;
+background-color: transparent;
+font-size: 15px;
+font-weight: 500;
+width: fit-content;
 }

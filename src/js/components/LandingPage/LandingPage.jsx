@@ -85,7 +85,6 @@ class LandingPage extends React.Component {
 		
 	}
 	updateText(dom){
-		console.log(dom.target.name)
 		var toChange = dom.target.name;
 		if(toChange=="name"){
 			this.setState({
