@@ -9,8 +9,10 @@ module.exports = {
             path.resolve(__dirname, "src", "js", "components", "Community", "Community.jsx"),
             path.resolve(__dirname, "src", "js", "components", "Resources", "Resources.jsx"),
             path.resolve(__dirname, "src", "js", "components", "AccountSettings", "AccountSettings.jsx"),
-            path.resolve(__dirname, "src", "js", "components", "Calendar", "Calendar.jsx"),
-            path.resolve(__dirname, "src", "js", "components", "Calendar", "Days.jsx"),
+            path.resolve(__dirname, "src", "js", "components", "Home", "Calendar", "Calendar.jsx"),
+            path.resolve(__dirname, "src", "js", "components", "Home", "Widget", "Widget.jsx"),
+            path.resolve(__dirname, "src", "js", "components", "Home", "Calendar", "Days.jsx"),
+            path.resolve(__dirname, "src", "js", "components", "Home", "Calendar", "Settings.jsx"),
             path.resolve(__dirname, "src", "js", "components", "Home", "Event.jsx"),
             path.resolve(__dirname, "src", "js", "components", "Home", "Posts.jsx"),
             path.resolve(__dirname, "src", "js", "components", "Home", "Post.jsx")

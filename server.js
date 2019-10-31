@@ -45,8 +45,15 @@ app.post("/login", function(req,res){
 			console.log(err)
 		}
 		var data = result.rows;
-
-		res.send({userid:data[0].userid})
+		try {
+			if (!data[0].userid) {
+				throw new TypeError("Incorrect Password")
+			} else {
+				res.send({userid:data[0].userid})
+			}
+		} catch (error) {
+			res.send({error:error})
+		}
 	})
 }) 
 

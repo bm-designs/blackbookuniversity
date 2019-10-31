@@ -171,7 +171,7 @@ class Event extends React.Component{
 						<option value="11h30pm">11:30pm</option>
 					</select>
 					<br/>
-					<textarea name="postText" onChange={this.updateText}> We support only uplifting speech here at BlackBook</textarea>
+					<textarea name="postText" onChange={this.updateText} placeholder="We support only uplifting speech here at BlackBook"> </textarea>
 					<label >Insert Link</label>
 					<input id="insert" type="URL" name="post-link" onChange={this.updateLink}/>
 					<div id="preview" >

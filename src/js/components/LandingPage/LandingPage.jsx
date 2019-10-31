@@ -32,7 +32,17 @@ class LandingPage extends React.Component {
 			email: this.state.loginEmail,
 			password: this.state.loginPassword
 		}
-		this.forceUpdate()
+		try {
+			if(!this.state.loginEmail.split("@")[1]){
+				throw new SyntaxError("You must enter a valid email address!")
+			} else {
+				this.forceUpdate()
+			}
+		} catch(err) {
+			alert(err)
+		}	
+			
+			
 		// fetch("/login", {
 		// 	method: "POST",
 		// 	headers: {
@@ -67,21 +77,34 @@ class LandingPage extends React.Component {
 	}
 	signUp(e){
 		e.preventDefault();
-		var data = {name:this.state.name, email:this.state.email, password:this.state.password, type:this.state.type}
-		console.log(data)
-		fetch("/signup", {
-			method: "POST",
-			headers: {
-                  'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
-                  'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-                  },
-			body: JSON.stringify(data)
-		}).then(response => {
-			if (response.ok) {
-				//update the cookie/session then transition to the home page
-				this.ReactDOM.render(<Home />,document.getElementById("app"))
+		if (this.state.name.split(" ")) {
+			if(this.state.email.split("@")){
+				if (this.state.password.split("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})")){
+					var data = {name:this.state.name, email:this.state.email, password:this.state.password, type:this.state.type}
+					console.log(data)
+					fetch("/signup", {
+						method: "POST",
+						headers: {
+			                  'Accept': 'application/json, application/xml, text/plain, text/html, *.*',
+			                  'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
+			                  },
+						body: JSON.stringify(data)
+					}).then(response => {
+						if (response.ok) {
+							//update the cookie/session then transition to the home page
+							this.ReactDOM.render(<Home />,document.getElementById("app"))
+						}
+					})
+				} else {	
+					alert("Enter a stronger Password")
+				}
+			} else {
+				alert("Enter valid email")
 			}
-		})
+		}else {
+			alert("Enter First and Last name")
+		}
+		
 		
 	}
 	updateText(dom){
@@ -127,13 +150,16 @@ class LandingPage extends React.Component {
 			return response.json();
 		})
 		.then(json => {
-			that.userid = json.userid 
-			that.setState({
-				userid:json.userid
-			})
-			that.ReactDOM.render(<Home userid={json.userid}/>,document.getElementById("app"))
+			if (json.error) {
+				alert(error)
+			} else {
+				that.userid = json.userid 
+				that.setState({
+					userid:json.userid
+				})
+				that.ReactDOM.render(<Home userid={json.userid}/>,document.getElementById("app"))
+			}
 		})
-		
 	}
 }
 	render(){
@@ -143,8 +169,8 @@ class LandingPage extends React.Component {
 					<h1> BlackBook </h1>
 					<form id="header-login" method="post">
 					<label>Login</label>
-					<input type="email" name="loginEmail" onChange={this.updateText.bind(this)} placeholder="Enter email.." required/>
-					<input type="password" name="loginPassword" onChange={this.updateText.bind(this)} placeholder="Enter password.." required/>
+					<input type="email" name="loginEmail" onChange={this.updateText.bind(this)} placeholder="Enter email.." required="required"/>
+					<input type="password" name="loginPassword" onChange={this.updateText.bind(this)} placeholder="Enter password.." required="required"/>
 					<button onClick={this.login}> Login </button>
 					</form>
 				</div>
